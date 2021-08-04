@@ -3,8 +3,10 @@ class sumit():
     def __init__(self,name):
         self.name=name
         print(name)
-    def smart(self):
+    def now(self):
         print("sumit is doing good")
-s1=s.smart()
 
-s=sumit("kumar")
+s1=now()
+print(type(s1))
+
+s2=sumit("kumar")
