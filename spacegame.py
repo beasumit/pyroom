@@ -4,7 +4,7 @@ import time
 import random
 
 #setting the windows for the game.
-WIDTH,HEIGHT=750,750
+WIDTH,HEIGHT=750,750 # we can directly use the height and width in the below bracket without making any varibale for height and width. 
 WIN = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.display.set_caption("space blast")
 
@@ -32,8 +32,8 @@ def main():
     clock = pygame.time.Clock()
 
     def redraw_window():
-        WIN=blit(BG,(0,0,))
-        pygame.display.updtae()
+        WIN.blit(BG, (0, 0))
+        pygame.display.updae()
 
     while run:
         clock.tick(FPS)
