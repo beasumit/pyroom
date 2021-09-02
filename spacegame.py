@@ -55,7 +55,7 @@ class Ship:
         self.health=health
         self.ship_img=None
         self.laser_img=None
-        self.laser=[]
+        self.lasers=[]
         self.cool_down_counter=0
 
     def draw(self,window):
@@ -104,12 +104,13 @@ class Player(Ship):
         for laser in self.lasers:
             laser.move(vel)
             if laser.off_screen(HEIGHT):
-                self.laser.remove(laser)
+                self.lasers.remove(laser)
             else:
                 for obj in objs:
                     if laser.collision(obj):
                         objs.remove(obj)
-                        self.lasers.remove(laser)
+                        if laser in self.lasers:
+                            self.lasers.remove(laser)
 #enemy ship
 class Enemy(Ship):
     COLOR_MAP ={"red": (RED_SPACE_SHIP,RED_LASER),
@@ -136,7 +137,7 @@ def main():
 
     lives=5
 
-    clock = pygame.time.Clock()
+    
     main_font=pygame.font.SysFont("comicsans",50)
     lost_font=pygame.font.SysFont("comicsans",80)
     enemies=[]
@@ -144,8 +145,10 @@ def main():
 
     wave_length=5
     player_vel=5
-    laser_vel=4
+    laser_vel=5
     player = Player(300,650)
+
+    clock = pygame.time.Clock()
     lost=False
     lost_count=0
 
